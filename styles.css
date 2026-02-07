@@ -39,6 +39,8 @@
 html, body {
     height: 100%;
     overflow: hidden;
+    /* Support for safe areas on notched phones */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -46,6 +48,8 @@ body {
     background: var(--bg-gradient);
     color: var(--pure-white);
     line-height: 1.6;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 
 /* ==================== STARFIELD BACKGROUND ==================== */
@@ -91,6 +95,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,6 +104,10 @@ body {
     transition: opacity 1s ease, visibility 1s ease;
     z-index: 5;
     background: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Safe area support */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .screen.active {
@@ -560,9 +569,7 @@ body {
     position: relative;
 }
 
-.no-btn:hover {
-    /* Will be handled by JS - button escapes */
-}
+/* Note: Hover is handled by JS - button escapes cursor */
 
 .no-escape-message {
     font-size: 1rem;
@@ -798,13 +805,50 @@ body {
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Large Tablets and Small Laptops */
+@media (max-width: 1024px) {
+    .content {
+        padding: 1.5rem;
+        max-width: 550px;
+    }
+    
+    .celebration-title {
+        font-size: 3rem;
+    }
+    
+    .main-question {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
+    .content {
+        padding: 1.25rem;
+        width: 92%;
+    }
+    
+    .typing-container {
+        min-height: 130px;
+        gap: 0.8rem;
+    }
+    
     .typing-text {
         font-size: 1.5rem;
+        min-height: 2rem;
+    }
+    
+    .memory-lines {
+        gap: 1.2rem;
     }
     
     .memory-line {
         font-size: 1.2rem;
+    }
+    
+    .crown {
+        font-size: 3.5rem;
     }
     
     .queen-title {
@@ -815,8 +859,35 @@ body {
         font-size: 1.4rem;
     }
     
+    .queen-text {
+        font-size: 1.1rem;
+    }
+    
+    .heartbeat-icon {
+        font-size: 4rem;
+    }
+    
+    .suspense-text {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+    }
+    
+    .suspense-subtext {
+        font-size: 1rem;
+    }
+    
     .main-question {
         font-size: 2rem;
+        line-height: 1.4;
+    }
+    
+    .question-sub {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .question-hearts {
+        font-size: 1.8rem;
     }
     
     .buttons-container {
@@ -828,7 +899,17 @@ body {
     .answer-btn {
         padding: 1rem 2.5rem;
         font-size: 1.1rem;
-        min-width: 130px;
+        min-width: 140px;
+        width: auto;
+    }
+    
+    .romantic-btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .celebration-hearts {
+        font-size: 2.5rem;
     }
     
     .celebration-title {
@@ -843,42 +924,515 @@ body {
         font-size: 1.5rem;
     }
     
+    .ring-emoji {
+        font-size: 3.5rem;
+    }
+    
+    .romantic-quote {
+        padding: 1.2rem;
+        margin: 1.5rem auto;
+    }
+    
     .romantic-quote p {
         font-size: 1rem;
+        line-height: 1.6;
     }
     
-    .heartbeat-icon {
-        font-size: 4rem;
+    .signature {
+        font-size: 1.3rem !important;
     }
     
-    .suspense-text {
-        font-size: 1.4rem;
+    .final-message p {
+        font-size: 1.1rem;
+    }
+    
+    .made-with-love {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+    
+    .made-with-love p {
+        font-size: 0.9rem;
     }
 }
 
-@media (max-width: 480px) {
+/* Large Phones */
+@media (max-width: 576px) {
+    .content {
+        padding: 1rem;
+        width: 94%;
+    }
+    
+    .typing-container {
+        min-height: 120px;
+        gap: 0.6rem;
+    }
+    
     .typing-text {
         font-size: 1.3rem;
+        min-height: 1.8rem;
+    }
+    
+    .memory-lines {
+        gap: 1rem;
     }
     
     .memory-line {
         font-size: 1.1rem;
     }
     
+    .crown {
+        font-size: 3rem;
+    }
+    
+    .sparkles {
+        width: 120px;
+        height: 60px;
+    }
+    
+    .sparkle {
+        font-size: 1rem;
+    }
+    
     .queen-title {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
+    }
+    
+    .queen-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .queen-text {
+        font-size: 1rem;
+    }
+    
+    .heartbeat-icon {
+        font-size: 3.5rem;
+    }
+    
+    .suspense-text {
+        font-size: 1.25rem;
+    }
+    
+    .suspense-subtext {
+        font-size: 0.95rem;
     }
     
     .main-question {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
+    }
+    
+    .question-sub {
+        font-size: 0.95rem;
+    }
+    
+    .question-hearts {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .answer-btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        min-width: 130px;
+    }
+    
+    .no-escape-message {
+        font-size: 0.9rem;
+    }
+    
+    .celebration-hearts {
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
     
     .celebration-title {
         font-size: 2rem;
     }
     
-    .crown {
+    .celebration-text {
+        font-size: 1.2rem;
+    }
+    
+    .celebration-forever {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .ring-container {
+        margin: 1.5rem 0;
+    }
+    
+    .ring-emoji {
         font-size: 3rem;
+    }
+    
+    .romantic-quote {
+        padding: 1rem;
+        margin: 1.2rem auto;
+    }
+    
+    .romantic-quote p {
+        font-size: 0.95rem;
+    }
+    
+    .quote-author {
+        font-size: 0.85rem;
+    }
+    
+    .signature {
+        font-size: 1.2rem !important;
+    }
+    
+    .final-message p {
+        font-size: 1rem;
+    }
+    
+    .name-highlight {
+        font-size: inherit;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 400px) {
+    .content {
+        padding: 0.8rem;
+        width: 96%;
+    }
+    
+    .typing-container {
+        min-height: 110px;
+        gap: 0.5rem;
+    }
+    
+    .typing-text {
+        font-size: 1.15rem;
+        min-height: 1.6rem;
+    }
+    
+    .memory-lines {
+        gap: 0.8rem;
+    }
+    
+    .memory-line {
+        font-size: 1rem;
+    }
+    
+    .romantic-btn {
+        padding: 0.8rem 1.6rem;
+        font-size: 0.95rem;
+        margin-top: 1.5rem;
+    }
+    
+    .crown {
+        font-size: 2.5rem;
+    }
+    
+    .queen-title {
+        font-size: 1.5rem;
+    }
+    
+    .queen-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .queen-text {
+        font-size: 0.9rem;
+    }
+    
+    .heartbeat-icon {
+        font-size: 3rem;
+    }
+    
+    .suspense-text {
+        font-size: 1.1rem;
+    }
+    
+    .suspense-subtext {
+        font-size: 0.9rem;
+    }
+    
+    .main-question {
+        font-size: 1.45rem;
+        line-height: 1.5;
+    }
+    
+    .question-sub {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .buttons-container {
+        gap: 1.2rem;
+    }
+    
+    .answer-btn {
+        padding: 0.85rem 1.8rem;
+        font-size: 0.95rem;
+        min-width: 120px;
+    }
+    
+    .celebration-title {
+        font-size: 1.7rem;
+    }
+    
+    .celebration-text {
+        font-size: 1.1rem;
+    }
+    
+    .celebration-forever {
+        font-size: 1.15rem;
+    }
+    
+    .ring-emoji {
+        font-size: 2.5rem;
+    }
+    
+    .romantic-quote {
+        padding: 0.8rem;
+    }
+    
+    .romantic-quote p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .signature {
+        font-size: 1.1rem !important;
+    }
+    
+    .final-message p {
+        font-size: 0.95rem;
+    }
+    
+    .made-with-love p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra Small Phones (iPhone SE, etc.) */
+@media (max-width: 350px) {
+    .typing-text {
+        font-size: 1.05rem;
+    }
+    
+    .memory-line {
+        font-size: 0.95rem;
+    }
+    
+    .crown {
+        font-size: 2.2rem;
+    }
+    
+    .queen-title {
+        font-size: 1.35rem;
+    }
+    
+    .queen-subtitle {
+        font-size: 1rem;
+    }
+    
+    .main-question {
+        font-size: 1.3rem;
+    }
+    
+    .answer-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .celebration-title {
+        font-size: 1.5rem;
+    }
+    
+    .celebration-text {
+        font-size: 1rem;
+    }
+}
+
+/* Landscape Mode on Phones */
+@media (max-height: 500px) and (orientation: landscape) {
+    .content {
+        padding: 0.5rem 1rem;
+        max-width: 80%;
+    }
+    
+    .typing-container {
+        min-height: 80px;
+        gap: 0.4rem;
+    }
+    
+    .typing-text {
+        font-size: 1.1rem;
+        min-height: 1.4rem;
+    }
+    
+    .memory-lines {
+        gap: 0.5rem;
+    }
+    
+    .memory-line {
+        font-size: 0.95rem;
+    }
+    
+    .romantic-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+    
+    .crown {
+        font-size: 2rem;
+    }
+    
+    .crown-container {
+        margin-bottom: 0.5rem;
+    }
+    
+    .queen-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .queen-subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .queen-text {
+        font-size: 0.85rem;
+    }
+    
+    .heartbeat-icon {
+        font-size: 2.5rem;
+    }
+    
+    .suspense-text {
+        font-size: 1rem;
+        margin-top: 0.8rem;
+    }
+    
+    .suspense-subtext {
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+    }
+    
+    .main-question {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .question-sub {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .question-hearts {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .buttons-container {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .answer-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .celebration-hearts {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .celebration-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .celebration-text {
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .celebration-forever {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .ring-container {
+        margin: 0.5rem 0;
+    }
+    
+    .ring-emoji {
+        font-size: 2rem;
+    }
+    
+    .romantic-quote {
+        padding: 0.5rem;
+        margin: 0.5rem auto;
+    }
+    
+    .romantic-quote p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    .final-message {
+        margin-top: 0.5rem;
+    }
+    
+    .final-message p {
+        font-size: 0.85rem;
+    }
+    
+    .signature {
+        font-size: 0.95rem !important;
+    }
+    
+    .made-with-love {
+        margin-top: 0.8rem;
+        padding-top: 0.5rem;
+    }
+    
+    .made-with-love p {
+        font-size: 0.75rem;
+        margin: 0.15rem 0;
+    }
+}
+
+/* Ensure touch targets are big enough on mobile */
+@media (hover: none) and (pointer: coarse) {
+    .romantic-btn,
+    .answer-btn {
+        min-height: 48px;
+        min-width: 120px;
+    }
+}
+
+/* High DPI / Retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .floating-heart {
+        filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.5));
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .floating-heart,
+    .star,
+    .confetti {
+        animation: none !important;
     }
 }
 
