@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 For My Shazadi - From Farhan</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div id="stars-container"></div>
+    
+    <!-- Cinematic Vignette -->
+    <div class="vignette"></div>
+    
+    <!-- Floating Hearts Background Container -->
+    <div id="hearts-container"></div>
+    
+    <!-- Background Music (Romantic Piano) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ==================== SCREEN 1: Landing ==================== -->
+    <section id="screen-landing" class="screen active">
+        <div class="content">
+            <div class="typing-container">
+                <p id="typing-text-1" class="typing-text"></p>
+                <p id="typing-text-2" class="typing-text"></p>
+                <p id="typing-text-3" class="typing-text"></p>
+            </div>
+            <button id="btn-start" class="romantic-btn hidden">
+                <span>Continue</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 2: Memory ==================== -->
+    <section id="screen-memory" class="screen">
+        <div class="content">
+            <div class="memory-lines">
+                <p class="memory-line" data-delay="0">From the moment you entered my life…</p>
+                <p class="memory-line" data-delay="1000">Everything changed ✨</p>
+                <p class="memory-line" data-delay="2000">Smiles felt warmer…</p>
+                <p class="memory-line" data-delay="3000">Dreams felt closer…</p>
+                <p class="memory-line" data-delay="4000">And my heart found its home 💕</p>
+            </div>
+            <button id="btn-memory" class="romantic-btn hidden">
+                <span>Go Ahead</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 3: Queen ==================== -->
+    <section id="screen-queen" class="screen">
+        <div class="content">
+            <div class="crown-container">
+                <span class="crown">👑</span>
+                <div class="sparkles">
+                    <span class="sparkle">✨</span>
+                    <span class="sparkle">✨</span>
+                    <span class="sparkle">✨</span>
+                    <span class="sparkle">✨</span>
+                </div>
+            </div>
+            <h1 class="queen-title">You are not ordinary</h1>
+            <p class="queen-subtitle">You are my <span class="highlight">Shazadi</span> 👑</p>
+            <p class="queen-text">The queen of my heart, my forever person</p>
+            <button id="btn-queen" class="romantic-btn">
+                <span>I have one question…</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 3.5: Suspense (NEW!) ==================== -->
+    <section id="screen-suspense" class="screen">
+        <div class="content suspense-content">
+            <div class="heartbeat-icon">💓</div>
+            <p class="suspense-text">My heart is beating so fast right now...</p>
+            <p class="suspense-subtext">Because what I'm about to ask you...</p>
+            <p class="suspense-subtext" style="animation-delay: 2s;">...could change everything 💫</p>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 4: The Question ==================== -->
+    <section id="screen-question" class="screen">
+        <div class="content question-content">
+            <div class="question-hearts">
+                <span>💕</span>
+                <span>💖</span>
+                <span>💕</span>
+            </div>
+            <h1 class="main-question">Will you stay with me forever? ❤️</h1>
+            <p class="question-sub">This is the most important question of my life…</p>
+            <div class="buttons-container">
+                <button id="btn-yes" class="answer-btn yes-btn">
+                    <span>YES 💍</span>
+                </button>
+                <button id="btn-no" class="answer-btn no-btn">
+                    <span>No</span>
+                </button>
+            </div>
+            <p id="no-message" class="no-escape-message hidden">Haha! You can't escape my love! 😏💕</p>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 5: Celebration ==================== -->
+    <section id="screen-celebration" class="screen">
+        <div id="confetti-container"></div>
+        <div class="content celebration-content">
+            <div class="celebration-hearts">
+                <span>💖</span>
+                <span>💍</span>
+                <span>💖</span>
+            </div>
+            <h1 class="celebration-title">I knew it ❤️</h1>
+            <p class="celebration-text">You are mine and I am yours</p>
+            <p class="celebration-forever">Forever starts now 💍</p>
+            
+            <div class="ring-container">
+                <span class="ring-emoji">💍</span>
+            </div>
+            
+            <div class="romantic-quote">
+                <p>"In all the world, there is no heart for me like yours.</p>
+                <p>In all the world, there is no love for you like mine."</p>
+                <span class="quote-author">— Maya Angelou</span>
+            </div>
+            <div class="final-message">
+                <p>Thank you for choosing me</p>
+                <p class="signature">— Forever Yours, <span class="name-highlight">Farhan Shafique</span> 💕</p>
+            </div>
+            
+            <div class="made-with-love">
+                <p>Made with all my heart 💖</p>
+                <p>by <span class="name-highlight">Farhan Shafique</span></p>
+                <p>for the love of my life</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
